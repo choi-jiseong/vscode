@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>약수</title>
+  <style>
+    input,
+    p,
+    button {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>약수 구하기</h1>
+  <input type="text">
+  <button>약수</button><br>
+  <p id="pelem"></p>
+  <script>
+    const num = document.querySelector("input");
+    const btn = document.querySelector("button");
+    const pelem = document.querySelector("#pelem");
+    btn.addEventListener("click", function () {
+      let input = num.value;
+      let str = "";
+      for (let i = 1; i <= input; i++)
+        if (input % i === 0)
+          str += i + " ";
+
+      pelem.innerHTML = str; //p 태그에 출력할 경우
+    });
+  </script>
+</body>
+
+</html>

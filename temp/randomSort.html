@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sort</title>
+  <style>
+    button,
+    input {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+  </style>
+  <script>
+    window.addEventListener("load", randomSort);
+
+    function randomSort() {
+      const btn1 = document.querySelector("#btn1");
+      const btn2 = document.querySelector("#btn2");
+      const random = document.querySelector("#random");
+      const sorted = document.querySelector("#sorted");
+      let numbers = [];
+
+      random.setAttribute("size", 40);
+      // sorted.setAttribute("size", 40);
+      sorted.size = 40;
+      btn1.addEventListener("click", function () {
+        // 난수생성 -> 배열에 저장 -> input태그에 표시
+        for (let i = 0; i < 10; i++) {
+          numbers[i] = Math.floor(Math.random() * 99 + 1);
+        }
+        random.value = numbers.join(" , ");
+      });
+      btn2.addEventListener("click", function () {
+        // 배열 정렬 -> input태그에 표시
+        // numbers.sort();// 문자열 정렬
+        numbers.sort(function (a, b) {
+          return a - b; //오름차순
+          // return b - a;  // 내림차순
+        });
+        sorted.value = numbers.join(" , ");
+      });
+
+    }
+  </script>
+</head>
+
+<body>
+  <h1>난수(1~99) 생성, 오름차순 정렬</h1>
+  <button id="btn1">난수생성</button>
+  <input id="random" type="text" name="random"><br>
+  <button id="btn2">난수정렬</button>
+  <input id="sorted" type="text" name="random">
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Style</title>
+  <style>
+    .atag {
+      display: block;
+      width: 120px;
+      text-align: center;
+      text-decoration: none;
+      background-color: blue;
+      color: white;
+      font-size: 1.5em;
+      font-weight: 700;
+      line-height: 2;
+    }
+  </style>
+  <script>
+    window.addEventListener("load", function () {
+      let atags = document.querySelectorAll(".atag");
+      // atags : 배열 취급, atags.length
+      for (let i = 0; i < atags.length; i++) {
+        atags[i].addEventListener("mouseover", displayRed);
+        atags[i].addEventListener("mouseout", displayBlue);
+      }
+
+      function displayRed() {
+        this.style.backgroundColor = "red";
+      }
+
+      function displayBlue() {
+        this.style.backgroundColor = "blue";
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <h1>DOM Style</h1>
+  <div class="container">
+    <a class="atag" href="">link1</a>
+    <a class="atag" href="">link2</a>
+    <a class="atag" href="">link3</a>
+  </div>
+</body>
+
+</html>
